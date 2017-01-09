@@ -16,17 +16,35 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Identity Server", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Hybrid Client 02", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("SignIn", "SignIn", "Account")</li>
+                    <li>@Html.ActionLink("SignOut", "SignOut", "Account")</li>
                 </ul>
             </div>
         </div>
     </div>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <p>
+            <dl>
+                @foreach (var claim in System.Security.Claims.ClaimsPrincipal.Current.Claims)
+                {
+                    <dt>@claim.Type</dt>
+                    <dd>@claim.Value</dd>
+                }
+            </dl>
+        </p>
+    }
+    else
+    {
+        <p>anonymous.</p>
+    }
     <div class="container body-content">
         @RenderBody()
         <hr />

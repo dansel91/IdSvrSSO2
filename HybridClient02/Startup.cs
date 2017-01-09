@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IdentityModel.Tokens;
 using System.Security.Claims;
 using System.Web.Helpers;
-using HybridClient;
+using HybridClient02;
 using IdentityModel.Client;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
@@ -13,12 +13,12 @@ using Owin;
 
 [assembly: OwinStartup(typeof(Startup))]
 
-namespace HybridClient
+namespace HybridClient02
 {
     public class Startup
     {
         private const string IdServBaseUri = "https://localhost:44311/core/";
-        private const string ClientUri = "http://localhost:5496/";
+        private const string ClientUri = "http://localhost:24624/";
 
         public void Configuration(IAppBuilder app)
         {
@@ -35,12 +35,12 @@ namespace HybridClient
             app.UseOpenIdConnectAuthentication(
                 new OpenIdConnectAuthenticationOptions
                 {
-                    ClientId = "hybridclient01",
+                    ClientId = "hybridclient02",
                     Authority = IdServBaseUri,
                     RedirectUri = ClientUri,
                     PostLogoutRedirectUri = ClientUri,
                     ResponseType = "code id_token token",
-                    Scope = "openid profile email roles offline_access",
+                    Scope = "openid profile email roles",
                     TokenValidationParameters = new TokenValidationParameters
                     {
                         NameClaimType = "name",
