@@ -41,23 +41,23 @@ namespace Project_2._1.IdentityServer
                 },
                 new Client
                 {
-                    ClientId = @"hybridclient",
-                    ClientName = @"Example Hybrid Client",
-                    ClientSecrets = new List<Secret>
-                    {
-                        new Secret("idsrv3test".Sha256())
-                    },
+                    ClientId = "hybridclient",
+                    ClientName = "Example Hybrid Client",
+                    //ClientSecrets = new List<Secret>
+                    //{
+                    //    new Secret("idsrv3test".Sha256())
+                    //},
                     Enabled = true,
                     Flow = Flows.Hybrid,
                     RequireConsent = true,
                     AllowRememberConsent = true,
                     RedirectUris = new List<string>
                     {
-                        "https://localhost:44305/"
+                        "http://localhost:5496/"
                     },
                     PostLogoutRedirectUris = new List<string>
                     {
-                        "https://localhost:44305/"
+                        "http://localhost:5496/"
                     },
                     AllowedScopes = new List<string>
                     {
