@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Cryptography.X509Certificates;
-using System.Web;
 using IdentityServer3.Core.Configuration;
 using Owin;
 using Project_2._1.IdentityServer;
